@@ -5,9 +5,9 @@
   <subtitle>share my point with the world</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://heyblackC.github.io/"/>
+  <link href="https://blog.heyblack.top/"/>
   <updated>2017-05-26T13:17:04.000Z</updated>
-  <id>https://heyblackC.github.io/</id>
+  <id>https://blog.heyblack.top/</id>
   
   <author>
     <name>zk-chen</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="https://heyblackC.github.io/2018/11/07/hello-world/"/>
-    <id>https://heyblackC.github.io/2018/11/07/hello-world/</id>
+    <link href="https://blog.heyblack.top/2018/11/07/hello-world/"/>
+    <id>https://blog.heyblack.top/2018/11/07/hello-world/</id>
     <published>2018-11-07T16:13:05.327Z</published>
     <updated>2017-05-26T13:17:04.000Z</updated>
     
@@ -37,8 +37,8 @@
   
   <entry>
     <title>my first post</title>
-    <link href="https://heyblackC.github.io/2018/11/07/my-first-post/"/>
-    <id>https://heyblackC.github.io/2018/11/07/my-first-post/</id>
+    <link href="https://blog.heyblack.top/2018/11/07/my-first-post/"/>
+    <id>https://blog.heyblack.top/2018/11/07/my-first-post/</id>
     <published>2018-11-07T10:27:15.000Z</published>
     <updated>2018-11-07T18:27:15.619Z</updated>
     
