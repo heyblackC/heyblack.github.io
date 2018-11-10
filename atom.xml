@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="https://blog.heyblack.top/2018/11/07/hello-world/"/>
-    <id>https://blog.heyblack.top/2018/11/07/hello-world/</id>
+    <link href="https://blog.heyblack.top/hello-world.html"/>
+    <id>https://blog.heyblack.top/hello-world.html</id>
     <published>2018-11-07T16:13:05.327Z</published>
     <updated>2017-05-26T13:17:04.000Z</updated>
     
@@ -37,8 +37,8 @@
   
   <entry>
     <title>my first post</title>
-    <link href="https://blog.heyblack.top/2018/11/07/my-first-post/"/>
-    <id>https://blog.heyblack.top/2018/11/07/my-first-post/</id>
+    <link href="https://blog.heyblack.top/my-first-post.html"/>
+    <id>https://blog.heyblack.top/my-first-post.html</id>
     <published>2018-11-07T10:27:15.000Z</published>
     <updated>2018-11-07T18:27:15.619Z</updated>
     
