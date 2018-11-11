@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.heyblack.top/"/>
-  <updated>2018-11-11T02:51:08.000Z</updated>
+  <updated>2018-11-11T04:52:57.268Z</updated>
   <id>https://blog.heyblack.top/</id>
   
   <author>
@@ -17,15 +17,15 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>[object Object]</title>
+    <title>Django部署到Nginx阿里云服务器（uwsgi协议）</title>
     <link href="https://blog.heyblack.top/Setting-up-Django-and-your-web-server-with-uWSGI-and-nginx.html"/>
     <id>https://blog.heyblack.top/Setting-up-Django-and-your-web-server-with-uWSGI-and-nginx.html</id>
-    <published>2018-11-11T03:13:57.944Z</published>
-    <updated>2018-11-11T02:51:08.000Z</updated>
+    <published>2018-11-10T20:25:02.000Z</published>
+    <updated>2018-11-11T04:52:57.268Z</updated>
     
     <summary type="html">
     
-      Django、Nginx、uwsgi建站的一个入门教程，测试环境为阿里云的Ubuntu16.04
+      介绍了如何基于Nginx服务器和uwsgi协议部署Django。另外，本文涵盖了作者在这过程中遇到的各种坑，及相应解决办法。
     
     </summary>
     
