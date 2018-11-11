@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.heyblack.top/Django%E9%83%A8%E7%BD%B2%E5%88%B0Nginx%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%88uwsgi%E5%8D%8F%E8%AE%AE%EF%BC%89.html</loc>
+    
+    <lastmod>2018-11-11T02:44:08.666Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.heyblack.top/about/index.html</loc>
     
-    <lastmod>2018-11-11T02:22:39.272Z</lastmod>
+    <lastmod>2018-11-11T02:28:45.070Z</lastmod>
     
   </url>
   
@@ -19,27 +26,6 @@
     <loc>https://blog.heyblack.top/categories/index.html</loc>
     
     <lastmod>2018-11-10T21:04:50.426Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.heyblack.top/test.html</loc>
-    
-    <lastmod>2018-11-10T20:58:04.925Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.heyblack.top/my-first-post.html</loc>
-    
-    <lastmod>2018-11-07T18:27:15.619Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.heyblack.top/hello-world.html</loc>
-    
-    <lastmod>2017-05-26T13:17:04.000Z</lastmod>
     
   </url>
   
