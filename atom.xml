@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.heyblack.top/"/>
-  <updated>2018-11-11T04:52:57.268Z</updated>
+  <updated>2018-11-11T05:56:10.088Z</updated>
   <id>https://blog.heyblack.top/</id>
   
   <author>
@@ -20,8 +20,8 @@
     <title>Django部署到Nginx阿里云服务器（uwsgi协议）</title>
     <link href="https://blog.heyblack.top/Setting-up-Django-and-your-web-server-with-uWSGI-and-nginx.html"/>
     <id>https://blog.heyblack.top/Setting-up-Django-and-your-web-server-with-uWSGI-and-nginx.html</id>
-    <published>2018-11-10T20:25:02.000Z</published>
-    <updated>2018-11-11T04:52:57.268Z</updated>
+    <published>2018-11-10T04:25:00.000Z</published>
+    <updated>2018-11-11T05:56:10.088Z</updated>
     
     <summary type="html">
     
@@ -29,9 +29,7 @@
     
     </summary>
     
-      <category term="Django" scheme="https://blog.heyblack.top/categories/Django/"/>
-    
-      <category term="Python" scheme="https://blog.heyblack.top/categories/Django/Python/"/>
+      <category term="Django框架学习" scheme="https://blog.heyblack.top/categories/Django%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/"/>
     
     
       <category term="Django" scheme="https://blog.heyblack.top/tags/Django/"/>
