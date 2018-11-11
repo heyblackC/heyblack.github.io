@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.heyblack.top/about/index.html</loc>
+    
+    <lastmod>2018-11-11T02:22:39.272Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.heyblack.top/tags/index.html</loc>
     
     <lastmod>2018-11-10T21:06:59.660Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>https://blog.heyblack.top/test.html</loc>
     
     <lastmod>2018-11-10T20:58:04.925Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.heyblack.top/about/index.html</loc>
-    
-    <lastmod>2018-11-10T18:33:50.174Z</lastmod>
     
   </url>
   
