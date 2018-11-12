@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.heyblack.top/"/>
-  <updated>2018-11-12T04:44:50.347Z</updated>
+  <updated>2018-11-12T04:53:23.927Z</updated>
   <id>https://blog.heyblack.top/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ubuntu16.04配置SSH远程免密登陆</title>
+    <link href="https://blog.heyblack.top/How-to-setup-SSH-login-without-a-password.html"/>
+    <id>https://blog.heyblack.top/How-to-setup-SSH-login-without-a-password.html</id>
+    <published>2018-11-11T20:49:47.000Z</published>
+    <updated>2018-11-12T04:53:23.927Z</updated>
+    
+    <summary type="html">
+    
+      使用SSH远程登录服务器可以说是当下的基本操作了吧，SSH不仅安全，而且可以免去每次登录输入密码的繁琐，快来看看如何配置吧。
+    
+    </summary>
+    
+      <category term="服务器搭建" scheme="https://blog.heyblack.top/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/"/>
+    
+    
+      <category term="Ubuntu16.04" scheme="https://blog.heyblack.top/tags/Ubuntu16-04/"/>
+    
+      <category term="SSH" scheme="https://blog.heyblack.top/tags/SSH/"/>
+    
+  </entry>
   
   <entry>
     <title>详解django中的collectstatic命令以及STATIC_URL、STATIC_ROOT配置</title>

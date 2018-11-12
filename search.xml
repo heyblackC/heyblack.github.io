@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Ubuntu16.04配置SSH远程免密登陆]]></title>
+    <url>%2FHow-to-setup-SSH-login-without-a-password.html</url>
+    <content type="text"></content>
+      <categories>
+        <category>服务器搭建</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu16.04</tag>
+        <tag>SSH</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[详解django中的collectstatic命令以及STATIC_URL、STATIC_ROOT配置]]></title>
     <url>%2FDetails-on-the-collectstatic-command-in-django-as-well-as-the-configuration-of-static-file-directory.html</url>
     <content type="text"><![CDATA[前言我最近在琢磨django框架的使用，在上传个人网站服务器上时，再次遇到了找不到静态文件，css、img等样式全无的问题。于是沉下心来，好好研究了django的静态文件到底应该怎么去部署（deploy），一点心得体会现分享于下。 1. python manage.py collectstatic做了什么 Collects the static files into STATIC_ROOT.翻译：把静态文件收集到 STATIC_ROOT中。 以上是官方文档中的简述。 当然你肯定会问，从哪里收集这些静态文件呢？ 在回答这个问题前，我们先看一眼自己项目中的setting.py文件：1234567STATICFILES_DIRS = [ os.path.join(BASE_DIR, "static/"), ]STATIC_URL = '/static/'STATIC_ROOT = os.path.join(BASE_DIR, "static_new/")#其中STATIC_ROOT和STATICFILES_DIRS默认为None，#即未设置，我是自己配置成这样子的 python manage.py collectstatic在执行时，django默认会去查看定义在STATICFILES_DIRS里的目录，以及在INSTALLED_APPS里定义了的app的static目录。如果这些目录下有文件，则把文件全部收集起来，拷贝到STATIC_ROOT目录下。[18.10.19二次编辑：当使用django的runserver时，如果请求的是一个静态文件，django也是会默认查看上述的ROOT、DIRS和static目录。但是，在部署到服务器上时，此规则就不使用了。] 这样说可能有点难懂，下面给出一个示例： 首先，以下是我的项目树形图，多余文件在此已被省略。1234567BASE_DIR├── manage.py├── polls│ ├── static│ │ ├── mystie_polls_static.txt├── static│ └── mysite_static.txt 注意：polls是我项目里的一个app！且已经添加到了INSTALLED_APPS中！ 可以看到，我的项目下有static/mysite_static.txt以及polls/static/mystie_polls_static.txt，前者目录已经被写在STATICFILES_DIRS中，后者的目录是app下的static目录，均符合静态文件的查找规则。 不难预想到，在执行collectstatic后，mystie_polls_static.txt和mysite_static.txt文件都会被收集到STATIC_ROOT中。 12#在项目目录下执行python manage.py collectstatic 最终项目文件结构的树状图如下：1234567891011├── manage.py├── polls│ ├── static│ │ ├── mystie_polls_static.txt├── static│ └── mysite_static.txt├── static_new│ ├── *admin│ ├── mysite_static.txt│ └── mystie_polls_static.txt#其中，admin是django自带的后台管理的静态文件 不出所料哈哈，django果然方便呀！我们以后很轻松就能把静态文件都收集到一起啦！ 2. STATIC_URL的作用 URL to use when referring to static files located in STATIC_ROOT.Example: “/static/“ or “http://www.example.com/static/&quot;翻译：STATIC_URL用于引用STATIC_ROOT所指向的静态文件。 举个栗子，在python manage.py runserver后，我能够以http://localhost:8000/static/mystie_polls_static.txt为路径，访问到STATIC_ROOT下的静态文件。 但是，如果你使用了nginx（或其他）服务器后，该规则就无效了。服务器会接管URL匹配规则，你需要在nginx服务器的配置文件中定义/static的alias。 此外，STATIC_URL还有一个作用，如下： 假定你的设置文件中有1STATIC_URL = '/static/' 那么，在templates中，你可以通过模板标签static和给定的相对路径来构成一个URL，如下。12&#123;% load static %&#125;&lt;img src="&#123;% static "my_app/example.jpg" %&#125;" alt="My image"&gt; 此时，构成的URL为my_app/static/my_app/example.jpg。 如果你在项目中用到了static这个模板标签，那一定要将nginx（或其他）服务器的/static配置到与STATIC_ROOT一致！依我愚见，这样做是有好处的。因为django不像php，只要将静态文件放置在.php或者.html同一目录下就好。比如：&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;static/css/main.css&quot;&gt;，在django中挪进一个文件夹中就可能访问不到了。这个时候static标签就非常有用了；当然你也可以在uwsgi的配置中通过--check-static和--static-map mountpoint=path来解决这个问题。官方链接在此：https://uwsgi-docs.readthedocs.io/en/latest/StaticFiles.html 总结希望本文对大家有所帮助！ 笔者也只是一名学生，如果出错了，欢迎指正，也欢迎与我讨论！]]></content>
