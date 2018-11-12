@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Details on the collectstatic command in django as well as the configuration of static file directory]]></title>
+    <title><![CDATA[详解django中的collectstatic命令以及STATIC_URL、STATIC_ROOT配置]]></title>
     <url>%2FDetails-on-the-collectstatic-command-in-django-as-well-as-the-configuration-of-static-file-directory.html</url>
     <content type="text"></content>
       <categories>
