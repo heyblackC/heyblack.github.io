@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.heyblack.top/"/>
-  <updated>2018-11-12T05:06:09.842Z</updated>
+  <updated>2018-11-12T10:29:37.907Z</updated>
   <id>https://blog.heyblack.top/</id>
   
   <author>
@@ -17,11 +17,33 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>如何给Ubuntu正确地设置永久环境变量并立即生效</title>
+    <link href="https://blog.heyblack.top/How-to-set-a-permanent-environment-variable-for-ubuntu-correctly.html"/>
+    <id>https://blog.heyblack.top/How-to-set-a-permanent-environment-variable-for-ubuntu-correctly.html</id>
+    <published>2018-11-12T02:25:24.000Z</published>
+    <updated>2018-11-12T10:29:37.907Z</updated>
+    
+    <summary type="html">
+    
+      介绍了环境变量的概念，及与它相关的一些文件；对用户环境变量和系统环境变量进行了区分；最后以一个实例的形式演示了如何正确设置一个永久环境变量。
+    
+    </summary>
+    
+      <category term="服务器搭建" scheme="https://blog.heyblack.top/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/"/>
+    
+    
+      <category term="Ubuntu16.04" scheme="https://blog.heyblack.top/tags/Ubuntu16-04/"/>
+    
+      <category term="环境变量" scheme="https://blog.heyblack.top/tags/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Ubuntu16.04下使用virtualenv创建各版本python的虚拟环境</title>
     <link href="https://blog.heyblack.top/Use-virtualenv-tool-to-create-virtual-environments-for-various-versions-of-python.html"/>
     <id>https://blog.heyblack.top/Use-virtualenv-tool-to-create-virtual-environments-for-various-versions-of-python.html</id>
     <published>2018-11-11T21:01:35.000Z</published>
-    <updated>2018-11-12T05:06:09.842Z</updated>
+    <updated>2018-11-12T05:11:02.905Z</updated>
     
     <summary type="html">
     
