@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.heyblack.top/How-to-use-uwsgi-restart-django.html</loc>
+    
+    <lastmod>2018-11-12T11:30:05.110Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.heyblack.top/How-to-set-a-permanent-environment-variable-for-ubuntu-correctly.html</loc>
     
-    <lastmod>2018-11-12T10:29:37.907Z</lastmod>
+    <lastmod>2018-11-12T10:36:07.561Z</lastmod>
     
   </url>
   
