@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="heyblack&#39;s techblog">
 <meta property="og:description" content="介绍了通过uwsgi来重载django项目代码的方法，同时也给出了手动重载的方法。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-12T11:30:05.110Z">
+<meta property="og:updated_time" content="2018-11-12T11:30:37.610Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何通过uwsgi重载django项目代码">
 <meta name="twitter:description" content="介绍了通过uwsgi来重载django项目代码的方法，同时也给出了手动重载的方法。">
@@ -356,7 +356,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-12T10:45:06+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-12T02:45:06+00:00">
                 2018-11-12
               </time>
             
@@ -420,7 +420,15 @@
       
 
       
-        
+        <h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h4><p>在默认设置下，uwsgi本身不会立即加载修改后的文件，这是为了效率起见。如果你有修改代码后需要立即在服务器上reload的需求，则在<code>uwsgi</code>的<code>ini</code>文件中加入如下修改（不建议）:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">py-autoreload = 1</span><br></pre></td></tr></table></figure></p>
+<p>如果我们仅仅只是在开发环境调试程序的话，其实使用<code>manage.py</code>就已足够，如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py runserver 0.0.0.0:8000</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>runserver在检测到文件修改时，会自动重载，对于开发调试已经足够。</p>
+</blockquote>
+<h4 id="正确手动重载uwsgi和代码的方式"><a href="#正确手动重载uwsgi和代码的方式" class="headerlink" title="正确手动重载uwsgi和代码的方式"></a>正确手动重载uwsgi和代码的方式</h4><p>首先，确保你<code>uwsgi</code>的<code>ini</code>配置文件有自动生成<code>pidfile</code>。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pidfile = /path/to/your/uwsgi.pid</span><br></pre></td></tr></table></figure></p>
+<p>然后，在你的<code>uwsgi.pid</code>的<strong>目录</strong>下执行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">uwsgi --reload uwsgi.pid</span><br><span class="line"><span class="comment">#其中uwsgi.pid是我的uwsgi自动生成的文件，即进程的pid文件。</span></span><br></pre></td></tr></table></figure></p>
+<p>至此，修改后的代码已经被重载，并且生效了。</p>
+
       
     </div>
     
@@ -512,8 +520,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/images/tuanzi.jpg" alt="zk-chen">
           <p class="site-author-name" itemprop="name">zk-chen</p>
@@ -581,6 +598,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#写在前面"><span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#正确手动重载uwsgi和代码的方式"><span class="nav-text">正确手动重载uwsgi和代码的方式</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -608,7 +641,7 @@
 
 <div class="powered-by">
 <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
-  本站访客数:<span id="busuanzi_value_site_pv"></span>
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
 </span>
 </div>
 <div class="powered-by">

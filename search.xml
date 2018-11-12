@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[如何通过uwsgi重载django项目代码]]></title>
     <url>%2FHow-to-use-uwsgi-restart-django.html</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[写在前面在默认设置下，uwsgi本身不会立即加载修改后的文件，这是为了效率起见。如果你有修改代码后需要立即在服务器上reload的需求，则在uwsgi的ini文件中加入如下修改（不建议）:1py-autoreload = 1 如果我们仅仅只是在开发环境调试程序的话，其实使用manage.py就已足够，如下：1python manage.py runserver 0.0.0.0:8000 runserver在检测到文件修改时，会自动重载，对于开发调试已经足够。 正确手动重载uwsgi和代码的方式首先，确保你uwsgi的ini配置文件有自动生成pidfile。1pidfile = /path/to/your/uwsgi.pid 然后，在你的uwsgi.pid的目录下执行：12uwsgi --reload uwsgi.pid#其中uwsgi.pid是我的uwsgi自动生成的文件，即进程的pid文件。 至此，修改后的代码已经被重载，并且生效了。]]></content>
       <categories>
         <category>服务器搭建</category>
       </categories>
