@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.heyblack.top/"/>
-  <updated>2018-11-11T07:57:42.789Z</updated>
+  <updated>2018-11-12T04:25:43.655Z</updated>
   <id>https://blog.heyblack.top/</id>
   
   <author>
@@ -17,11 +17,31 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>在django中使用MySQL作为数据库backend（Ubuntu系统）</title>
+    <link href="https://blog.heyblack.top/How-to-use-mysql-as-the-backend-of-django.html"/>
+    <id>https://blog.heyblack.top/How-to-use-mysql-as-the-backend-of-django.html</id>
+    <published>2018-11-11T20:20:21.000Z</published>
+    <updated>2018-11-12T04:25:43.655Z</updated>
+    
+    <summary type="html">
+    
+      介绍了如何安装MySQL，并将Django中默认的SQLite数据库替换为MySQL。另外，settings.py中一些参数的设置也有所记录。
+    
+    </summary>
+    
+      <category term="Django框架学习" scheme="https://blog.heyblack.top/categories/Django%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="Django" scheme="https://blog.heyblack.top/tags/Django/"/>
+    
+  </entry>
+  
+  <entry>
     <title>正则表达式实用例子</title>
     <link href="https://blog.heyblack.top/Useful-regular-expression-examples.html"/>
     <id>https://blog.heyblack.top/Useful-regular-expression-examples.html</id>
-    <published>2018-11-10T23:53:36.000Z</published>
-    <updated>2018-11-11T07:57:42.789Z</updated>
+    <published>2018-11-10T15:53:00.000Z</published>
+    <updated>2018-11-11T11:05:28.851Z</updated>
     
     <summary type="html">
     

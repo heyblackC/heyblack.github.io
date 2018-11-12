@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[在django中使用MySQL作为数据库backend（Ubuntu系统）]]></title>
+    <url>%2FHow-to-use-mysql-as-the-backend-of-django.html</url>
+    <content type="text"></content>
+      <categories>
+        <category>Django框架学习</category>
+      </categories>
+      <tags>
+        <tag>Django</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[正则表达式实用例子]]></title>
     <url>%2FUseful-regular-expression-examples.html</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[一、正则表达式介绍 正则表达式，又称规则表达式。（英语：Regular Expression，在代码中常简写为regex、regexp或RE），计算机科学的一个概念。正则表达式通常被用来检索、替换那些符合某个模式(规则)的文本。 正则表达式自成一门语言，它在诸多编程场景中都非常有用，比如： 检测一个前端页面用户输入（电话号码、邮箱等）是否合法 爬虫时对数据进行“匹配”和“过滤”，以获取到我们希望得到的数据 对批量文本的快速替换，免去重复手工操作 二、regex实用例子1. 爬虫时对headers进行包装1^(.*):\s(.*)$ 在mutiline模式下替换为：1&quot;$1&quot;: &quot;$2&quot;, 效果如下：123456789User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36Accept: image/webp,image/apng,image/*,*/*;q=0.8Accept-Encoding: gzip, deflate, brAccept-Language: zh-CN,zh;q=0.9----------------------------------------------------------------------------&quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36&quot;,&quot;Accept&quot;: &quot;image/webp,image/apng,image/*,*/*;q=0.8&quot;,&quot;Accept-Encoding&quot;: &quot;gzip, deflate, br&quot;,&quot;Accept-Language&quot;: &quot;zh-CN,zh;q=0.9&quot;, 2. C代码去注释在mutiline模式下1(\/\*[\s\S]*?\*\/)|([^:]|^)(\/\/.*$) 3. HTML内容提取4. 电话号码检验下面是国内 13、15、18开头的手机号正则表达式。（可根据目前国内收集号扩展前两位开头号码）1^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d&#123;8&#125;$ https://regexr.com/]]></content>
       <categories>
         <category>编程脚手架</category>
       </categories>

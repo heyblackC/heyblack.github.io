@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://blog.heyblack.top/How-to-use-mysql-as-the-backend-of-django.html</loc>
+    <lastmod>2018-11-12T04:25:43.655Z</lastmod>
+  </url>  <url>
     <loc>https://blog.heyblack.top/Useful-regular-expression-examples.html</loc>
-    <lastmod>2018-11-11T07:57:42.789Z</lastmod>
+    <lastmod>2018-11-11T11:05:28.851Z</lastmod>
   </url>  <url>
     <loc>https://blog.heyblack.top/Setting-up-Django-and-your-web-server-with-uWSGI-and-nginx.html</loc>
     <lastmod>2018-11-11T05:56:10.088Z</lastmod>
