@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="heyblack&#39;s techblog">
 <meta property="og:description" content="收集了一些编程实践中会使用到的正则表达式例子，同时给出简要的语法说明。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-11T11:05:28.851Z">
+<meta property="og:updated_time" content="2018-11-12T04:46:26.578Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式实用例子">
 <meta name="twitter:description" content="收集了一些编程实践中会使用到的正则表达式例子，同时给出简要的语法说明。">
@@ -433,7 +433,7 @@
 <p>在mutiline模式下替换为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;$1&quot;: &quot;$2&quot;,</span><br></pre></td></tr></table></figure></p>
 <p>效果如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36</span><br><span class="line">Accept: image/webp,image/apng,image/*,*/*;q=0.8</span><br><span class="line">Accept-Encoding: gzip, deflate, br</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.9</span><br><span class="line">----------------------------------------------------------------------------</span><br><span class="line">&quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36&quot;,</span><br><span class="line">&quot;Accept&quot;: &quot;image/webp,image/apng,image/*,*/*;q=0.8&quot;,</span><br><span class="line">&quot;Accept-Encoding&quot;: &quot;gzip, deflate, br&quot;,</span><br><span class="line">&quot;Accept-Language&quot;: &quot;zh-CN,zh;q=0.9&quot;,</span><br></pre></td></tr></table></figure></p>
 <h5 id="2-C代码去注释"><a href="#2-C代码去注释" class="headerlink" title="2. C代码去注释"></a>2. C代码去注释</h5><p>在mutiline模式下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(\/\*[\s\S]*?\*\/)|([^:]|^)(\/\/.*$)</span><br></pre></td></tr></table></figure></p>
-<h4 id="3-HTML内容提取"><a href="#3-HTML内容提取" class="headerlink" title="3. HTML内容提取"></a>3. HTML内容提取</h4><h4 id="4-电话号码检验"><a href="#4-电话号码检验" class="headerlink" title="4. 电话号码检验"></a>4. 电话号码检验</h4><p>下面是国内 13、15、18开头的手机号正则表达式。（可根据目前国内收集号扩展前两位开头号码）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d&#123;8&#125;$</span><br></pre></td></tr></table></figure></p>
+<h5 id="3-HTML内容提取"><a href="#3-HTML内容提取" class="headerlink" title="3. HTML内容提取"></a>3. HTML内容提取</h5><h5 id="4-电话号码检验"><a href="#4-电话号码检验" class="headerlink" title="4. 电话号码检验"></a>4. 电话号码检验</h5><p>下面是国内 13、15、18开头的手机号正则表达式。（可根据目前国内收集号扩展前两位开头号码）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d&#123;8&#125;$</span><br></pre></td></tr></table></figure></p>
 <p><code>https://regexr.com/</code></p>
 
       
@@ -618,7 +618,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、正则表达式介绍"><span class="nav-text">一、正则表达式介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、regex实用例子"><span class="nav-text">二、regex实用例子</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-爬虫时对headers进行包装"><span class="nav-text">1. 爬虫时对headers进行包装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-C代码去注释"><span class="nav-text">2. C代码去注释</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-HTML内容提取"><span class="nav-text">3. HTML内容提取</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-电话号码检验"><span class="nav-text">4. 电话号码检验</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、正则表达式介绍"><span class="nav-text">一、正则表达式介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、regex实用例子"><span class="nav-text">二、regex实用例子</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-爬虫时对headers进行包装"><span class="nav-text">1. 爬虫时对headers进行包装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-C代码去注释"><span class="nav-text">2. C代码去注释</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-HTML内容提取"><span class="nav-text">3. HTML内容提取</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-电话号码检验"><span class="nav-text">4. 电话号码检验</span></a></li></ol></li></ol></div>
             
 
           </div>

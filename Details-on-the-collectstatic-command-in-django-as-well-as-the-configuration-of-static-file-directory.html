@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="heyblack&#39;s techblog">
 <meta property="og:description" content="刚上手Django框架的时候，相信不少童鞋会对Django中静态文件配置有所疑惑。本文详解了Django中静态文件的配置、路径，另外还有一些笔者我的理解，希望可以解决你类似的困惑。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-12T04:43:56.264Z">
+<meta property="og:updated_time" content="2018-11-12T04:44:50.347Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="详解django中的collectstatic命令以及STATIC_URL、STATIC_ROOT配置">
 <meta name="twitter:description" content="刚上手Django框架的时候，相信不少童鞋会对Django中静态文件配置有所疑惑。本文详解了Django中静态文件的配置、路径，另外还有一些笔者我的理解，希望可以解决你类似的困惑。">
@@ -420,7 +420,39 @@
       
 
       
-        
+        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>我最近在琢磨django框架的使用，在上传个人网站服务器上时，再次遇到了<strong>找不到静态文件，css、img等样式全无</strong>的问题。于是沉下心来，好好研究了django的静态文件到底应该怎么去部署（deploy），一点心得体会现分享于下。</p>
+<h4 id="1-python-manage-py-collectstatic做了什么"><a href="#1-python-manage-py-collectstatic做了什么" class="headerlink" title="1. python manage.py collectstatic做了什么"></a>1. <code>python manage.py collectstatic</code>做了什么</h4><blockquote>
+<p>Collects the static files into STATIC_ROOT.<br>翻译：把静态文件收集到 STATIC_ROOT中。</p>
+</blockquote>
+<p>以上是官方文档中的简述。</p>
+<p>当然你肯定会问，从<strong>哪里</strong>收集这些静态文件呢？</p>
+<p>在回答这个问题前，我们先看一眼自己项目中的<code>setting.py</code>文件：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">STATICFILES_DIRS = [ </span><br><span class="line">            os.path.join(BASE_DIR, <span class="string">"static/"</span>),</span><br><span class="line">			]</span><br><span class="line">STATIC_URL = <span class="string">'/static/'</span></span><br><span class="line">STATIC_ROOT = os.path.join(BASE_DIR, <span class="string">"static_new/"</span>)</span><br><span class="line"><span class="comment">#其中STATIC_ROOT和STATICFILES_DIRS默认为None，</span></span><br><span class="line"><span class="comment">#即未设置，我是自己配置成这样子的</span></span><br></pre></td></tr></table></figure></p>
+<p><code>python manage.py collectstatic</code>在执行时，<code>django</code>默认会去查看定义在<code>STATICFILES_DIRS</code>里的目录，以及在<code>INSTALLED_APPS</code>里定义了的app的<code>static</code>目录。如果这些目录下有文件，则把文件全部收集起来，拷贝到<code>STATIC_ROOT</code>目录下。[<strong>18.10.19二次编辑</strong>：当使用<code>django</code>的<code>runserver</code>时，如果请求的是一个静态文件，django也是会默认查看上述的<strong>ROOT、DIRS和static</strong>目录。但是，在<strong>部署到服务器上</strong>时，此规则就不使用了。]</p>
+<p>这样说可能有点难懂，下面给出一个示例：</p>
+<p>首先，以下是我的项目树形图，多余文件在此已被省略。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">BASE_DIR</span><br><span class="line">├── manage.py</span><br><span class="line">├── polls</span><br><span class="line">│   ├── static</span><br><span class="line">│   │   ├── mystie_polls_static.txt</span><br><span class="line">├── static</span><br><span class="line">│   └── mysite_static.txt</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>注意：polls是我项目里的一个app！且已经添加到了INSTALLED_APPS中！</p>
+</blockquote>
+<p>可以看到，我的项目下有<code>static/mysite_static.txt</code>以及<code>polls/static/mystie_polls_static.txt</code>，前者目录已经被写在<code>STATICFILES_DIRS</code>中，后者的目录是app下的<strong>static</strong>目录，均符合静态文件的查找规则。</p>
+<p>不难预想到，在执行<code>collectstatic</code>后，<code>mystie_polls_static.txt</code>和<code>mysite_static.txt</code>文件都会被收集到<code>STATIC_ROOT</code>中。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#在项目目录下执行</span></span><br><span class="line">python manage.py collectstatic</span><br></pre></td></tr></table></figure>
+<p>最终项目文件结构的树状图如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">├── manage.py</span><br><span class="line">├── polls</span><br><span class="line">│   ├── static</span><br><span class="line">│   │   ├── mystie_polls_static.txt</span><br><span class="line">├── static</span><br><span class="line">│   └── mysite_static.txt</span><br><span class="line">├── static_new</span><br><span class="line">│   ├── *admin</span><br><span class="line">│   ├── mysite_static.txt</span><br><span class="line">│   └── mystie_polls_static.txt</span><br><span class="line">#其中，admin是django自带的后台管理的静态文件</span><br></pre></td></tr></table></figure></p>
+<p>不出所料哈哈，django果然方便呀！我们以后很轻松就能把静态文件都收集到一起啦！</p>
+<h4 id="2-STATIC-URL的作用"><a href="#2-STATIC-URL的作用" class="headerlink" title="2. STATIC_URL的作用"></a>2. <code>STATIC_URL</code>的作用</h4><blockquote>
+<p>URL to use when referring to static files located in STATIC_ROOT.<br>Example: “/static/“ or “<a href="http://www.example.com/static/&quot;" target="_blank" rel="noopener">http://www.example.com/static/&quot;</a><br>翻译：STATIC_URL用于引用STATIC_ROOT所指向的静态文件。</p>
+</blockquote>
+<p>举个栗子，在<code>python manage.py runserver</code>后，我能够以<a href="http://localhost:8000/static/mystie_polls_static.txt为路径，访问到STATIC_ROOT下的静态文件。" target="_blank" rel="noopener">http://localhost:8000/static/mystie_polls_static.txt为路径，访问到STATIC_ROOT下的静态文件。</a></p>
+<p>但是，如果你使用了<code>nginx</code>（或其他）服务器后，该规则就无效了。服务器会接管<code>URL</code>匹配规则，你需要在nginx服务器的配置文件中定义<code>/static</code>的<code>alias</code>。</p>
+<p>此外，<code>STATIC_URL</code>还有一个作用，如下：</p>
+<p>假定你的设置文件中有<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">STATIC_URL = '/static/'</span><br></pre></td></tr></table></figure></p>
+<p>那么，在<code>templates</code>中，你可以通过模板标签<strong>static</strong>和给定的相对路径来构成一个URL，如下。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;% load static %&#125;</span><br><span class="line">&lt;img src=<span class="string">"&#123;% static "</span>my_app/example.jpg<span class="string">" %&#125;"</span> alt=<span class="string">"My image"</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<p>此时，构成的URL为<code>my_app/static/my_app/example.jpg</code>。</p>
+<blockquote>
+<p>如果你在项目中用到了<code>static</code>这个模板标签，那一定要将nginx（或其他）服务器的<code>/static</code>配置到与<strong>STATIC_ROOT</strong>一致！<br>依我愚见，这样做是有好处的。因为django不像php，只要将静态文件放置在<code>.php</code>或者<code>.html</code>同一目录下就好。<br>比如：<code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;static/css/main.css&quot;&gt;</code>，在django中挪进一个文件夹中就可能访问不到了。<br>这个时候<code>static</code>标签就非常有用了；当然你也可以在uwsgi的配置中通过<code>--check-static</code>和<code>--static-map mountpoint=path</code>来解决这个问题。官方链接在此：<a href="https://uwsgi-docs.readthedocs.io/en/latest/StaticFiles.html" target="_blank" rel="noopener">https://uwsgi-docs.readthedocs.io/en/latest/StaticFiles.html</a></p>
+</blockquote>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>希望本文对大家有所帮助！</p>
+<p>笔者也只是一名学生，如果出错了，欢迎指正，也欢迎与我讨论！</p>
+
       
     </div>
     
@@ -510,8 +542,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/images/tuanzi.jpg" alt="zk-chen">
           <p class="site-author-name" itemprop="name">zk-chen</p>
@@ -578,6 +619,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-python-manage-py-collectstatic做了什么"><span class="nav-text">1. python manage.py collectstatic做了什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-STATIC-URL的作用"><span class="nav-text">2. STATIC_URL的作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
