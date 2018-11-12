@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Details on the collectstatic command in django as well as the configuration of static file directory]]></title>
+    <url>%2FDetails-on-the-collectstatic-command-in-django-as-well-as-the-configuration-of-static-file-directory.html</url>
+    <content type="text"></content>
+      <categories>
+        <category>Django框架学习</category>
+      </categories>
+      <tags>
+        <tag>Django</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[在django中使用MySQL作为数据库backend（Ubuntu系统）]]></title>
     <url>%2FHow-to-use-mysql-as-the-backend-of-django.html</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[关于mysql MySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，目前属于 Oracle 旗下产品。MySQL 是最流行的关系型数据库管理系统之一，在 WEB 应用方面，MySQL是最好的 RDBMS (Relational Database Management System，关系数据库管理系统) 应用软件。 另外，博主后续也会继续学习MySQL的知识，所以现在就先以MySQL为数据库来使用吧！ 1. 安装MySQL（基于Ubuntu）1sudo apt-get install mysql-server mysql-client 试运行MySQL：12#这之后要输入在安装时设置的密码mysql -u root -p 2. 创建一个新数据库及新用户数据库名为1234```shellCREATE DATABASE database_name CHARACTER SET utf8;CREATE USER &apos;user_name&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;user_password&apos;;GRANT ALL ON database_name.* TO &apos;user_name&apos;@&apos;localhost&apos;; 1234#查看所有用户SELECT DISTINCT CONCAT('User: ''',user,'''@''',host,''';') AS query FROM mysql.user;#查看所有库SHOW DATABASES; 当然你也可以如下删库、删户，然后跑路 。12DROP USER 'user_name'@'localhost';DROP DATABASE IF EXISTS database_name; 3. 安装MySQL-pythonMySQL-python是python中一个用来链接和管理123```shellsudo apt-get install python3-devpip install mysqlclient 验证是否安装成功，在12345678910```python&gt;&gt;&gt; import MySQLdb&gt;&gt;&gt; db = MySQLdb.connect(&quot;localhost&quot;, &quot;user_name&quot;, &quot;user_password&quot;, &quot;database_name&quot;)&gt;&gt;&gt; cursor = db.cursor()&gt;&gt;&gt; cursor.execute(&quot;SELECT VERSION()&quot;)1&gt;&gt;&gt; print(data)(&apos;5.7.23-0ubuntu0.16.04.1&apos;,)&gt;&gt;&gt; db.close() 如果有出现类似上述响应，则说明安装成功 ，接下来便来到最后一步。 4. 配置django的123456789101112```pythonDATABASES = &#123; &apos;default&apos;: &#123; &apos;ENGINE&apos;: &apos;django.db.backends.mysql&apos;, &apos;NAME&apos;: &apos;database_name&apos;, # 数据库名 &apos;USER&apos;: &apos;user_name&apos;, # 数据库账户名 &apos;PASSWORD&apos;: os.environ[&apos;MY_DB_PASS&apos;], # 即user_password，数据库密码。 # 为安全起见，应从系统环境变量中获取。os.environ[&apos;MY_DB_PASS&apos;] &apos;HOST&apos;: &apos;127.0.0.1&apos;, # 数据库服务器IP &apos;PORT&apos;: &apos;3306&apos;, # 端口 &#125;&#125;接下来运行12python manage.py makemigrations # 生成迁移文件，有点prompt的感觉，可以在最终操作前check一下python manage.py migrate #执行迁移 至此，mysql数据库的配置就完成啦。你可以再次查看数据库，此时数据库不为空，因为django已经生成了一些tables在里边了。 Tip可以通过describe table_name查看一个表的结构。]]></content>
       <categories>
         <category>Django框架学习</category>
       </categories>

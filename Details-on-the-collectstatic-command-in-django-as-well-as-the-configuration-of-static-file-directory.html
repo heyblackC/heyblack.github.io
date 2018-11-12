@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Hexo, Python, PHP, Techblog">
+  <meta name="keywords" content="Django,collectstatic command,STATIC_URL,STATIC_ROOT">
 
 
 
@@ -96,17 +96,18 @@
 
 
 
-<meta name="description" content="South China University of Technology">
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="https://blog.heyblack.top/categories/index.html">
+<meta name="description" content="刚上手Django框架的时候，相信不少童鞋会对Django中静态文件配置有所疑惑。本文详解了Django中静态文件的配置、路径，另外还有一些笔者我的理解，希望可以解决你类似的困惑。">
+<meta name="keywords" content="Django,collectstatic command,STATIC_URL,STATIC_ROOT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Details on the collectstatic command in django as well as the configuration of static file directory">
+<meta property="og:url" content="https://blog.heyblack.top/Details-on-the-collectstatic-command-in-django-as-well-as-the-configuration-of-static-file-directory.html">
 <meta property="og:site_name" content="heyblack&#39;s techblog">
-<meta property="og:description" content="South China University of Technology">
+<meta property="og:description" content="刚上手Django框架的时候，相信不少童鞋会对Django中静态文件配置有所疑惑。本文详解了Django中静态文件的配置、路径，另外还有一些笔者我的理解，希望可以解决你类似的困惑。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-10T21:04:50.426Z">
+<meta property="og:updated_time" content="2018-11-12T04:42:46.701Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
-<meta name="twitter:description" content="South China University of Technology">
+<meta name="twitter:title" content="Details on the collectstatic command in django as well as the configuration of static file directory">
+<meta name="twitter:description" content="刚上手Django框架的时候，相信不少童鞋会对Django中静态文件配置有所疑惑。本文详解了Django中静态文件的配置、路径，另外还有一些笔者我的理解，希望可以解决你类似的困惑。">
 
 
 
@@ -135,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="https://blog.heyblack.top/categories/">
+  <link rel="canonical" href="https://blog.heyblack.top/Details-on-the-collectstatic-command-in-django-as-well-as-the-configuration-of-static-file-directory.html">
 
 
 
 
 
-  <title>categories | heyblack's techblog</title>
+  <title>Details on the collectstatic command in django as well as the configuration of static file directory | heyblack's techblog</title>
   
 
 
@@ -314,40 +315,169 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.heyblack.top/Details-on-the-collectstatic-command-in-django-as-well-as-the-configuration-of-static-file-directory.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zk-chen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tuanzi.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="heyblack's techblog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h2 class="post-title" itemprop="name headline">categories</h2>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                目前共计 2 个分类
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Django框架学习/">Django框架学习</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程脚手架/">编程脚手架</a><span class="category-list-count">1</span></li></ul>
-            </div>
-          </div>
+          <h2 class="post-title" itemprop="name headline">Details on the collectstatic command in django as well as the configuration of static file directory</h2>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-12T04:36:50+08:00">
+                2018-11-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Django框架学习/" itemprop="url" rel="index">
+                    <span itemprop="name">Django框架学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  刚上手Django框架的时候，相信不少童鞋会对Django中静态文件配置有所疑惑。本文详解了Django中静态文件的配置、路径，另外还有一些笔者我的理解，希望可以解决你类似的困惑。
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Django/" rel="tag"><i class="fa fa-tag"></i> Django</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/How-to-use-mysql-as-the-backend-of-django.html" rel="next" title="在django中使用MySQL作为数据库backend（Ubuntu系统）">
+                <i class="fa fa-chevron-left"></i> 在django中使用MySQL作为数据库backend（Ubuntu系统）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -567,10 +697,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 

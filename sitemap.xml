@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.heyblack.top/Details-on-the-collectstatic-command-in-django-as-well-as-the-configuration-of-static-file-directory.html</loc>
+    
+    <lastmod>2018-11-12T04:42:46.701Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.heyblack.top/How-to-use-mysql-as-the-backend-of-django.html</loc>
     
-    <lastmod>2018-11-12T04:25:43.655Z</lastmod>
+    <lastmod>2018-11-12T04:31:42.904Z</lastmod>
     
   </url>
   

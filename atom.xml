@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.heyblack.top/"/>
-  <updated>2018-11-12T04:25:43.655Z</updated>
+  <updated>2018-11-12T04:42:46.701Z</updated>
   <id>https://blog.heyblack.top/</id>
   
   <author>
@@ -17,11 +17,31 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Details on the collectstatic command in django as well as the configuration of static file directory</title>
+    <link href="https://blog.heyblack.top/Details-on-the-collectstatic-command-in-django-as-well-as-the-configuration-of-static-file-directory.html"/>
+    <id>https://blog.heyblack.top/Details-on-the-collectstatic-command-in-django-as-well-as-the-configuration-of-static-file-directory.html</id>
+    <published>2018-11-11T20:36:50.000Z</published>
+    <updated>2018-11-12T04:42:46.701Z</updated>
+    
+    <summary type="html">
+    
+      刚上手Django框架的时候，相信不少童鞋会对Django中静态文件配置有所疑惑。本文详解了Django中静态文件的配置、路径，另外还有一些笔者我的理解，希望可以解决你类似的困惑。
+    
+    </summary>
+    
+      <category term="Django框架学习" scheme="https://blog.heyblack.top/categories/Django%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="Django" scheme="https://blog.heyblack.top/tags/Django/"/>
+    
+  </entry>
+  
+  <entry>
     <title>在django中使用MySQL作为数据库backend（Ubuntu系统）</title>
     <link href="https://blog.heyblack.top/How-to-use-mysql-as-the-backend-of-django.html"/>
     <id>https://blog.heyblack.top/How-to-use-mysql-as-the-backend-of-django.html</id>
     <published>2018-11-11T20:20:21.000Z</published>
-    <updated>2018-11-12T04:25:43.655Z</updated>
+    <updated>2018-11-12T04:31:42.904Z</updated>
     
     <summary type="html">
     
