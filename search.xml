@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Ubuntu16.04下使用virtualenv创建各版本python的虚拟环境]]></title>
+    <url>%2FUse-virtualenv-tool-to-create-virtual-environments-for-various-versions-of-python.html</url>
+    <content type="text"></content>
+      <categories>
+        <category>服务器搭建</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu16.04</tag>
+        <tag>virtualenv</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Ubuntu16.04配置SSH远程免密登陆]]></title>
     <url>%2FHow-to-setup-SSH-login-without-a-password.html</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[什么是SSH？SSH 为 Secure Shell 的缩写，由 IETF 的网络小组（Network Working Group）所制定；SSH 为建立在应用层基础上的安全协议。SSH 是目前较可靠，专为远程登录会话和其他网络服务提供安全性的协议。 1. 安装SSH1sudo apt-get install openssh-server 由于我的Ubuntu服务器已经安装好了SSH，所以提示我无需安装。安装好后，我们需要启动一下SSH服务。 2. 查看并启动SSH1sudo ps -e | grep ssh 其中ps -e表示查看当前的进程，-e表示显示全部，效果同-Agrep ssh即grep match_pattern，是正则表达式，它会获取包含match_pattern的文本段当有类似如上结果显示时，表示服务器的SSH服务正在健壮地运行中。如果没有则需要启动SSH服务，如下：1234#启动ssh服务sudo service ssh start#或者sudo /etc/init.d/ssh restart 3. 查看或修改SSH配置文件SSH的配置文件一般在/etc/ssh/sshd_config中1sudo vim /etc/ssh/sshd_config 老版本的话，可能需要做如下修改才行。如果有PermitRootLogin without-password,加一个”#”号，注释掉该行，并增加一句PermitRootLogin yes。 4. 生成公私钥对12ssh-keygen -t rsa -P ''#-P表示密码password，-P '' 就表示空密码 该命令将在~/.ssh目录下面产生一个密钥id_rsa和一个公钥id_rsa.pubwindows下是当前的用户目录下，比如我的username为echo，所以在C:\Users\echo目录下其中，公钥要复制到服务器上，这样才能在你登录时，进行公私钥配对 5. 将公钥复制到服务器12sudo vim ~/.ssh/authorized_keys#如果没有权限则chmod 600 ~/.ssh/authorized_keys 使用vim编辑器打开.ssh目录下的authorized_keys，并且将本地的id_rsa.pub内容复制进去，如有多个公钥则换行即可，并使用wq命令保存退出。 写在最后由于我使用的是阿里云服务器，在一段时间不操作后，连接就被断掉了……为了更好的使用，可以将断开时间设置为24h。详情见阿里云服务器ssh经常掉线的解决办法。 至此就已经配置好了SSH，请愉快地登录吧！！！]]></content>
       <categories>
         <category>服务器搭建</category>
       </categories>
@@ -26,7 +38,7 @@
   <entry>
     <title><![CDATA[在django中使用MySQL作为数据库backend（Ubuntu系统）]]></title>
     <url>%2FHow-to-use-mysql-as-the-backend-of-django.html</url>
-    <content type="text"><![CDATA[关于mysql MySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，目前属于 Oracle 旗下产品。MySQL 是最流行的关系型数据库管理系统之一，在 WEB 应用方面，MySQL是最好的 RDBMS (Relational Database Management System，关系数据库管理系统) 应用软件。 另外，博主后续也会继续学习MySQL的知识，所以现在就先以MySQL为数据库来使用吧！ 1. 安装MySQL（基于Ubuntu）1sudo apt-get install mysql-server mysql-client 试运行MySQL：12#这之后要输入在安装时设置的密码mysql -u root -p 2. 创建一个新数据库及新用户数据库名为1234```shellCREATE DATABASE database_name CHARACTER SET utf8;CREATE USER &apos;user_name&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;user_password&apos;;GRANT ALL ON database_name.* TO &apos;user_name&apos;@&apos;localhost&apos;; 1234#查看所有用户SELECT DISTINCT CONCAT('User: ''',user,'''@''',host,''';') AS query FROM mysql.user;#查看所有库SHOW DATABASES; 当然你也可以如下删库、删户，然后跑路 。12DROP USER 'user_name'@'localhost';DROP DATABASE IF EXISTS database_name; 3. 安装MySQL-pythonMySQL-python是python中一个用来链接和管理123```shellsudo apt-get install python3-devpip install mysqlclient 验证是否安装成功，在12345678910```python&gt;&gt;&gt; import MySQLdb&gt;&gt;&gt; db = MySQLdb.connect(&quot;localhost&quot;, &quot;user_name&quot;, &quot;user_password&quot;, &quot;database_name&quot;)&gt;&gt;&gt; cursor = db.cursor()&gt;&gt;&gt; cursor.execute(&quot;SELECT VERSION()&quot;)1&gt;&gt;&gt; print(data)(&apos;5.7.23-0ubuntu0.16.04.1&apos;,)&gt;&gt;&gt; db.close() 如果有出现类似上述响应，则说明安装成功 ，接下来便来到最后一步。 4. 配置django的123456789101112```pythonDATABASES = &#123; &apos;default&apos;: &#123; &apos;ENGINE&apos;: &apos;django.db.backends.mysql&apos;, &apos;NAME&apos;: &apos;database_name&apos;, # 数据库名 &apos;USER&apos;: &apos;user_name&apos;, # 数据库账户名 &apos;PASSWORD&apos;: os.environ[&apos;MY_DB_PASS&apos;], # 即user_password，数据库密码。 # 为安全起见，应从系统环境变量中获取。os.environ[&apos;MY_DB_PASS&apos;] &apos;HOST&apos;: &apos;127.0.0.1&apos;, # 数据库服务器IP &apos;PORT&apos;: &apos;3306&apos;, # 端口 &#125;&#125;接下来运行12python manage.py makemigrations # 生成迁移文件，有点prompt的感觉，可以在最终操作前check一下python manage.py migrate #执行迁移 至此，mysql数据库的配置就完成啦。你可以再次查看数据库，此时数据库不为空，因为django已经生成了一些tables在里边了。 Tip可以通过describe table_name查看一个表的结构。]]></content>
+    <content type="text"><![CDATA[关于mysql MySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，目前属于 Oracle 旗下产品。MySQL 是最流行的关系型数据库管理系统之一，在 WEB 应用方面，MySQL是最好的 RDBMS (Relational Database Management System，关系数据库管理系统) 应用软件。 另外，博主后续也会继续学习MySQL的知识，所以现在就先以MySQL为数据库来使用吧！ 1. 安装MySQL（基于Ubuntu）1sudo apt-get install mysql-server mysql-client 试运行MySQL：12#这之后要输入在安装时设置的密码mysql -u root -p 2. 创建一个新数据库及新用户数据库名为1234```shellCREATE DATABASE database_name CHARACTER SET utf8;CREATE USER &apos;user_name&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;user_password&apos;;GRANT ALL ON database_name.* TO &apos;user_name&apos;@&apos;localhost&apos;; 1234#查看所有用户SELECT DISTINCT CONCAT('User: ''',user,'''@''',host,''';') AS query FROM mysql.user;#查看所有库SHOW DATABASES; 当然你也可以如下删库、删户，然后跑路 。12DROP USER 'user_name'@'localhost';DROP DATABASE IF EXISTS database_name; 3. 安装MySQL-pythonMySQL-python是python中一个用来链接和管理123```shellsudo apt-get install python3-devpip install mysqlclient 验证是否安装成功，在12345678910```python&gt;&gt;&gt; import MySQLdb&gt;&gt;&gt; db = MySQLdb.connect(&quot;localhost&quot;, &quot;user_name&quot;, &quot;user_password&quot;, &quot;database_name&quot;)&gt;&gt;&gt; cursor = db.cursor()&gt;&gt;&gt; cursor.execute(&quot;SELECT VERSION()&quot;)1&gt;&gt;&gt; print(data)(&apos;5.7.23-0ubuntu0.16.04.1&apos;,)&gt;&gt;&gt; db.close() 如果有出现类似上述响应，则说明安装成功 ，接下来便来到最后一步。 4. 配置django的settings.py1234567891011DATABASES = &#123; 'default': &#123; 'ENGINE': 'django.db.backends.mysql', 'NAME': 'database_name', # 数据库名 'USER': 'user_name', # 数据库账户名 'PASSWORD': os.environ['MY_DB_PASS'], # 即user_password，数据库密码。 # 为安全起见，应从系统环境变量中获取。os.environ['MY_DB_PASS'] 'HOST': '127.0.0.1', # 数据库服务器IP 'PORT': '3306', # 端口 &#125;&#125; 接下来运行12python manage.py makemigrations # 生成迁移文件，有点prompt的感觉，可以在最终操作前check一下python manage.py migrate #执行迁移 至此，mysql数据库的配置就完成啦。你可以再次查看数据库，此时数据库不为空，因为django已经生成了一些tables在里边了。 Tip可以通过describe table_name查看一个表的结构。]]></content>
       <categories>
         <category>Django框架学习</category>
       </categories>

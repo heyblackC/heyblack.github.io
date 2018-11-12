@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.heyblack.top/Use-virtualenv-tool-to-create-virtual-environments-for-various-versions-of-python.html</loc>
+    
+    <lastmod>2018-11-12T05:06:09.842Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.heyblack.top/How-to-use-mysql-as-the-backend-of-django.html</loc>
+    
+    <lastmod>2018-11-12T04:57:10.595Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.heyblack.top/How-to-setup-SSH-login-without-a-password.html</loc>
     
-    <lastmod>2018-11-12T04:53:23.927Z</lastmod>
+    <lastmod>2018-11-12T04:53:58.374Z</lastmod>
     
   </url>
   
@@ -19,13 +33,6 @@
     <loc>https://blog.heyblack.top/Details-on-the-collectstatic-command-in-django-as-well-as-the-configuration-of-static-file-directory.html</loc>
     
     <lastmod>2018-11-12T04:44:50.347Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.heyblack.top/How-to-use-mysql-as-the-backend-of-django.html</loc>
-    
-    <lastmod>2018-11-12T04:31:42.904Z</lastmod>
     
   </url>
   
