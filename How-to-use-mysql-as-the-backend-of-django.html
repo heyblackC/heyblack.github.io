@@ -104,12 +104,12 @@
 <meta property="og:site_name" content="heyblack&#39;s techblog">
 <meta property="og:description" content="介绍了如何安装MySQL，并将Django中默认的SQLite数据库替换为MySQL。另外，settings.py中一些参数的设置也有所记录。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://i2.bvimg.com/668295/f6e1f7b11c0235c8.png">
-<meta property="og:updated_time" content="2018-11-12T04:57:10.595Z">
+<meta property="og:image" content="https://heyblack-techblog.oss-cn-shenzhen.aliyuncs.com/f6e1f7b11c0235c8.png">
+<meta property="og:updated_time" content="2018-11-17T05:55:59.237Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在django中使用MySQL作为数据库backend（Ubuntu系统）">
 <meta name="twitter:description" content="介绍了如何安装MySQL，并将Django中默认的SQLite数据库替换为MySQL。另外，settings.py中一些参数的设置也有所记录。">
-<meta name="twitter:image" content="http://i2.bvimg.com/668295/f6e1f7b11c0235c8.png">
+<meta name="twitter:image" content="https://heyblack-techblog.oss-cn-shenzhen.aliyuncs.com/f6e1f7b11c0235c8.png">
 
 
 
@@ -428,7 +428,7 @@
 <p>另外，博主后续也会继续学习MySQL的知识，所以现在就先以MySQL为数据库来使用吧！</p>
 <h4 id="1-安装MySQL（基于Ubuntu）"><a href="#1-安装MySQL（基于Ubuntu）" class="headerlink" title="1. 安装MySQL（基于Ubuntu）"></a>1. 安装MySQL（基于Ubuntu）</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install mysql-server mysql-client</span><br></pre></td></tr></table></figure>
 <p>试运行MySQL：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">这之后要输入在安装时设置的密码</span></span><br><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://i2.bvimg.com/668295/f6e1f7b11c0235c8.png" alt="mysql操作示意图"></p>
+<p><img src="https://heyblack-techblog.oss-cn-shenzhen.aliyuncs.com/f6e1f7b11c0235c8.png" alt="mysql操作示意图"></p>
 <h4 id="2-创建一个新数据库及新用户"><a href="#2-创建一个新数据库及新用户" class="headerlink" title="2. 创建一个新数据库及新用户"></a>2. 创建一个新数据库及新用户</h4><p>数据库名为<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">```shell</span><br><span class="line">CREATE DATABASE database_name CHARACTER SET utf8;</span><br><span class="line">CREATE USER &apos;user_name&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;user_password&apos;;</span><br><span class="line">GRANT ALL ON database_name.* TO &apos;user_name&apos;@&apos;localhost&apos;;</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">查看所有用户</span></span><br><span class="line">SELECT DISTINCT CONCAT('User: ''',user,'''@''',host,''';') AS query FROM mysql.user;</span><br><span class="line"><span class="meta">#</span><span class="bash">查看所有库</span></span><br><span class="line">SHOW DATABASES;</span><br></pre></td></tr></table></figure>
 <p>当然你也可以如下删库、删户，<del>然后跑路</del> 。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DROP USER 'user_name'@'localhost';</span><br><span class="line">DROP DATABASE IF EXISTS database_name;</span><br></pre></td></tr></table></figure></p>
@@ -558,7 +558,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -580,7 +580,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

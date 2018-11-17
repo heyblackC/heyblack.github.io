@@ -104,16 +104,16 @@
 <meta property="og:site_name" content="heyblack&#39;s techblog">
 <meta property="og:description" content="介绍了如何基于Nginx服务器和uwsgi协议部署Django。另外，本文涵盖了作者在这过程中遇到的各种坑，及相应解决办法。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://i1.bvimg.com/668295/26b987f368e863b8.png">
+<meta property="og:image" content="https://heyblack-techblog.oss-cn-shenzhen.aliyuncs.com/26b987f368e863b8.png">
 <meta property="og:image" content="https://img-blog.csdn.net/20181007105147878?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNjI5NjUzOA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
 <meta property="og:image" content="https://img-blog.csdn.net/2018100712333886?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNjI5NjUzOA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
-<meta property="og:image" content="http://i1.bvimg.com/668295/817629e7ef5718ef.png">
+<meta property="og:image" content="https://heyblack-techblog.oss-cn-shenzhen.aliyuncs.com/817629e7ef5718ef.png">
 <meta property="og:image" content="https://img-blog.csdn.net/20181008234610804?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNjI5NjUzOA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
-<meta property="og:updated_time" content="2018-11-11T05:56:10.088Z">
+<meta property="og:updated_time" content="2018-11-17T05:54:40.843Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Django部署到Nginx阿里云服务器（uwsgi协议）">
 <meta name="twitter:description" content="介绍了如何基于Nginx服务器和uwsgi协议部署Django。另外，本文涵盖了作者在这过程中遇到的各种坑，及相应解决办法。">
-<meta name="twitter:image" content="http://i1.bvimg.com/668295/26b987f368e863b8.png">
+<meta name="twitter:image" content="https://heyblack-techblog.oss-cn-shenzhen.aliyuncs.com/26b987f368e863b8.png">
 
 
 
@@ -447,7 +447,7 @@
 <p>注意要先执行<code>sudo apt-get update</code>，这条命令是同步 /etc/apt/sources.list 中列出的源的索引文件，相当于获取软件最新的状态，这样才能获取到最新的软件包。不执行update，有可能会提示<strong>无法定位到nginx</strong>。</p>
 </blockquote>
 <p>安装完成后，用电脑的浏览器访问服务器的公网ip地址，如果出现Nginx的欢迎页面（如下），则表示nginx运行正常。</p>
-<p><img src="http://i1.bvimg.com/668295/26b987f368e863b8.png" alt="nginx欢迎页"></p>
+<p><img src="https://heyblack-techblog.oss-cn-shenzhen.aliyuncs.com/26b987f368e863b8.png" alt="nginx欢迎页"></p>
 <p>果然我这里没那么顺利，出现了异常，无法访问到该ip（也许是被墨菲定律眷顾吧= =!）。</p>
 <p>因此下边开始异常解决。如果在你的服务器上运行正常，则<a href="#Mark">nginx运行正常，点击跳过异常解决部分。</a></p>
 <h4 id="2-1-nginx无法访问的解决办法"><a href="#2-1-nginx无法访问的解决办法" class="headerlink" title="2.1 nginx无法访问的解决办法"></a>2.1 nginx无法访问的解决办法</h4><h5 id="问题原因猜测："><a href="#问题原因猜测：" class="headerlink" title="问题原因猜测："></a>问题原因猜测：</h5><ol>
@@ -464,7 +464,7 @@
 <p><img src="https://img-blog.csdn.net/2018100712333886?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNjI5NjUzOA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""><br>结果发现ufw未激活，并没有启用。</p>
 <p>了解到阿里云服务器有一个<strong>安全组规则</strong>设置，其作用可类比防火墙，可以控制端口的开放与关闭。</p>
 <h4 id="2-4-阿里云安全组规则配置"><a href="#2-4-阿里云安全组规则配置" class="headerlink" title="2.4 阿里云安全组规则配置"></a>2.4 阿里云安全组规则配置</h4><p>前往阿里云服务器的管理控制台，点击自己的云服务器–&gt;更多–&gt;网络和安全组–&gt;安全组配置–&gt;配置规则，发现规则里<strong>没有对外开放80端口</strong>。至此，问题原因已经被找出。</p>
-<p>理所当然地，我们应该设置<strong>对外开放80端口</strong>。选择<code>添加安全组规则</code>，并如下图填写。<br><img src="http://i1.bvimg.com/668295/817629e7ef5718ef.png" alt="安全组规则"></p>
+<p>理所当然地，我们应该设置<strong>对外开放80端口</strong>。选择<code>添加安全组规则</code>，并如下图填写。<br><img src="https://heyblack-techblog.oss-cn-shenzhen.aliyuncs.com/817629e7ef5718ef.png" alt="安全组规则"></p>
 <blockquote>
 <p>其中授权对象的0.0.0.0/0表示允许或拒绝所有的ip访问。我们搭建的个人服务器当然是希望让更多的人访问，因此选择允许所有ip。</p>
 </blockquote>
@@ -627,7 +627,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -649,7 +649,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

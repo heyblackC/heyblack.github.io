@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.heyblack.top/"/>
-  <updated>2018-11-12T11:30:37.610Z</updated>
+  <updated>2018-11-17T06:24:41.296Z</updated>
   <id>https://blog.heyblack.top/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>通过Docker为MySQL安装phpMyAdmin管理界面</title>
+    <link href="https://blog.heyblack.top/How-to-install-phpMyAdmin-with-Docker-for-your-MySQL.html"/>
+    <id>https://blog.heyblack.top/How-to-install-phpMyAdmin-with-Docker-for-your-MySQL.html</id>
+    <published>2018-11-16T22:17:30.000Z</published>
+    <updated>2018-11-17T06:24:41.296Z</updated>
+    
+    <summary type="html">
+    
+      介绍了如何通过Docker来安装phpMyAdmin，并连接到在Docker宿主中的MySQL的方法。其中会涉及到“MySQL允许远程访问”、“容器链接到宿主网络”等问题。
+    
+    </summary>
+    
+      <category term="服务器搭建" scheme="https://blog.heyblack.top/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/"/>
+    
+    
+      <category term="Docker" scheme="https://blog.heyblack.top/tags/Docker/"/>
+    
+      <category term="MySQL" scheme="https://blog.heyblack.top/tags/MySQL/"/>
+    
+      <category term="phpMyAdmin" scheme="https://blog.heyblack.top/tags/phpMyAdmin/"/>
+    
+  </entry>
   
   <entry>
     <title>如何通过uwsgi重载django项目代码</title>
@@ -43,7 +67,7 @@
     <link href="https://blog.heyblack.top/How-to-set-a-permanent-environment-variable-for-ubuntu-correctly.html"/>
     <id>https://blog.heyblack.top/How-to-set-a-permanent-environment-variable-for-ubuntu-correctly.html</id>
     <published>2018-11-12T02:25:24.000Z</published>
-    <updated>2018-11-12T10:36:07.561Z</updated>
+    <updated>2018-11-17T05:55:27.758Z</updated>
     
     <summary type="html">
     
@@ -129,7 +153,7 @@
     <link href="https://blog.heyblack.top/How-to-use-mysql-as-the-backend-of-django.html"/>
     <id>https://blog.heyblack.top/How-to-use-mysql-as-the-backend-of-django.html</id>
     <published>2018-11-11T20:20:21.000Z</published>
-    <updated>2018-11-12T04:57:10.595Z</updated>
+    <updated>2018-11-17T05:55:59.237Z</updated>
     
     <summary type="html">
     
@@ -171,7 +195,7 @@
     <link href="https://blog.heyblack.top/Setting-up-Django-and-your-web-server-with-uWSGI-and-nginx.html"/>
     <id>https://blog.heyblack.top/Setting-up-Django-and-your-web-server-with-uWSGI-and-nginx.html</id>
     <published>2018-11-10T04:25:00.000Z</published>
-    <updated>2018-11-11T05:56:10.088Z</updated>
+    <updated>2018-11-17T05:54:40.843Z</updated>
     
     <summary type="html">
     
